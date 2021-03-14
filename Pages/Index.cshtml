@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<p>List of blogs:</p>
+<!-- Display all blogs to the web page -->
+@foreach (var b in Model.Blogs)
+{
+    <p>@Html.DisplayFor(modelItem => b.Title)</p>
+}
+<p>First Blog: @Model.FirstBlog.Title</p>
+<select asp-items="Model.BlogsDropDown" class="form-control">
+    <option value="">-- Select Blog --</option>
+</select>
