@@ -13,9 +13,14 @@
 <!-- Display all blogs to the web page -->
 @foreach (var b in Model.Blogs)
 {
-    <p>@Html.DisplayFor(modelItem => b.Title)</p>
+    <P>@Html.DisplayFor(modelItem => b.Title)</P>
 }
-<p>First Blog: @Model.FirstBlog.Title</p>
+<br />
+<p>First Blog: @Html.DisplayFor(modelItem => Model.FirstBlog.Title)</p>
+<p>Filtered Blog: @Html.DisplayFor(modelItem => Model.FilteredBlog.Title)</p>
+<p>Found Blog: @Html.DisplayFor(modelItem => Model.FindBlog.Title)</p>
+<br />
+<br />
 <select asp-items="Model.BlogsDropDown" class="form-control">
     <option value="">-- Select Blog --</option>
 </select>

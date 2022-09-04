@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace BlogDemoASP.Migrations
 {
     public partial class InitialCreate : Migration
@@ -10,9 +12,9 @@ namespace BlogDemoASP.Migrations
                 name: "Blogs",
                 columns: table => new
                 {
-                    BlogId = table.Column<int>(nullable: false)
+                    BlogId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(type: "TEXT", maxLength: 60, nullable: false)
                 },
                 constraints: table =>
                 {

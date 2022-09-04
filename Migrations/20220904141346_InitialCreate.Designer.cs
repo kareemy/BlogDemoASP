@@ -5,17 +5,18 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace BlogDemoASP.Migrations
 {
     [DbContext(typeof(BlogDbContext))]
-    [Migration("20200328001416_InitialCreate")]
+    [Migration("20220904141346_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
 
             modelBuilder.Entity("BlogDemoASP.Models.Blog", b =>
                 {
@@ -24,6 +25,8 @@ namespace BlogDemoASP.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(60)
                         .HasColumnType("TEXT");
 
                     b.HasKey("BlogId");
